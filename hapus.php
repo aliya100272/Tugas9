@@ -1,13 +1,11 @@
 <?php
 include "koneksi.php";
-
 $id = $_GET['id'];
 
-$sql = mysqli_query($koneksi, "DELETE FROM ekskul WHERE id_ekskul='$id'");
-
-if ($sql) {
-    header("Location: index.php");
+$sql = "DELETE FROM ekskul WHERE id_ekskul=$id";
+if (mysqli_query($koneksi, $sql)) {
+    echo "<script>alert('Data berhasil dihapus'); window.location='index.php';</script>";
 } else {
-    echo "Gagal menghapus data: " . mysqli_error($koneksi);
+    echo "Error: " . mysqli_error($koneksi);
 }
 ?>

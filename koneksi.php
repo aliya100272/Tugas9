@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";
-$user = "root"; 
-$pass = "3087045478";  // kosongkan kalau tidak ada password
-$db   = "db_xirpl1_18_1";
+$user = "root";
+$pass = ""; // default Laragon root tanpa password
+$db   = "db_xirpl1-18_1";
 
 $koneksi = mysqli_connect($host, $user, $pass, $db);
 
