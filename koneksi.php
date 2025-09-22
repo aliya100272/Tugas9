@@ -5,8 +5,8 @@ ini_set('display_errors', 1);
 
 <?php
 $host = "localhost";
-$user = "root";
-$pass = ""; // default Laragon root tanpa password
+$user = "xirpl1-18";
+$pass = "3087045478"; 
 $db   = "db_xirpl1-18_1";
 
 $koneksi = mysqli_connect("localhost", "root", "", "db_xirpl1-18_1");
