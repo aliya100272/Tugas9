@@ -2,7 +2,7 @@
 include "koneksi.php";
 $id = $_GET['id'];
 
-$sql = "DELETE FROM ekskul WHERE id_ekskul=$id";
+$sql = "DELETE FROM eskul WHERE id=$id";
 if (mysqli_query($koneksi, $sql)) {
     echo "<script>alert('Data berhasil dihapus'); window.location='index.php';</script>";
 } else {

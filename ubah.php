@@ -1,7 +1,7 @@
 <?php include "koneksi.php"; ?>
 <?php
 $id = $_GET['id'];
-$sql = mysqli_query($koneksi, "SELECT * FROM ekskul WHERE id_ekskul=$id");
+$sql = mysqli_query($koneksi, "SELECT * FROM eskul WHERE id=$id");
 $data = mysqli_fetch_assoc($sql);
 ?>
 <!DOCTYPE html>
@@ -16,15 +16,23 @@ $data = mysqli_fetch_assoc($sql);
   <form method="POST">
     <div class="mb-3">
       <label class="form-label">Nama Ekskul</label>
-      <input type="text" name="nama_ekskul" class="form-control" value="<?= $data['nama_ekskul'] ?>" required>
+      <input type="text" name="Nama_ekskul" class="form-control" value="<?= $data['Nama_ekskul'] ?>" required>
     </div>
     <div class="mb-3">
       <label class="form-label">Nama Siswa</label>
-      <input type="text" name="nama_siswa" class="form-control" value="<?= $data['nama_siswa'] ?>" required>
+      <input type="text" name="Nama_siswa" class="form-control" value="<?= $data['Nama_siswa'] ?>" required>
     </div>
     <div class="mb-3">
       <label class="form-label">Kelas</label>
-      <input type="text" name="kelas" class="form-control" value="<?= $data['kelas'] ?>" required>
+      <input type="text" name="Kelas" class="form-control" value="<?= $data['Kelas'] ?>" required>
+    </div>
+     <div class="mb-3">
+      <label class="form-label">No Hp</label>
+      <input type="text" name="No_Hp" class="form-control" value="<?= $data['No_Hp'] ?>" required>
+    </div>
+     <div class="mb-3">
+      <label class="form-label">Umur</label>
+      <input type="text" name="umur" class="form-control" value="<?= $data['umur'] ?>" required>
     </div>
     <button type="submit" name="update" class="btn btn-success">Update</button>
     <a href="index.php" class="btn btn-secondary">Kembali</a>
@@ -32,11 +40,13 @@ $data = mysqli_fetch_assoc($sql);
 
   <?php
   if (isset($_POST['update'])) {
-      $nama_ekskul = $_POST['nama_ekskul'];
-      $nama_siswa  = $_POST['nama_siswa'];
-      $kelas       = $_POST['kelas'];
+      $nama_ekskul = $_POST['Nama_ekskul'];
+      $nama_siswa  = $_POST['Nama_siswa'];
+      $kelas       = $_POST['Kelas'];
+      $No_Hp       = $_POST['No_Hp'];
+      $umur       = $_POST['umur'];
 
-      $sql = "UPDATE ekskul SET nama_ekskul='$nama_ekskul', nama_siswa='$nama_siswa', kelas='$kelas' WHERE id_ekskul=$id";
+      $sql = "UPDATE eskul SET Nama_ekskul='$nama_ekskul', Nama_siswa='$nama_siswa', Kelas='$kelas', No_Hp='$No_Hp', umur='$umur' WHERE id=$id";
       if (mysqli_query($koneksi, $sql)) {
           echo "<script>alert('Data berhasil diupdate'); window.location='index.php';</script>";
       } else {

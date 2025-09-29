@@ -12,25 +12,29 @@
   <table class="table table-bordered table-striped">
     <thead>
       <tr>
-        <th>ID</th>
+        <th>id</th>
         <th>Nama Ekskul</th>
         <th>Nama Siswa</th>
         <th>Kelas</th>
+        <th>No Hp</th>
+        <th>Umur</th>
         <th>Aksi</th>
       </tr>
     </thead>
     <tbody>
       <?php
-      $sql = mysqli_query($koneksi, "SELECT * FROM ekskul");
+      $sql = mysqli_query($koneksi, "SELECT * FROM eskul");
       while ($data = mysqli_fetch_assoc($sql)) {
           echo "<tr>
-                  <td>{$data['id_ekskul']}</td>
-                  <td>{$data['nama_ekskul']}</td>
-                  <td>{$data['nama_siswa']}</td>
-                  <td>{$data['kelas']}</td>
+                  <td>{$data['id']}</td>
+                  <td>{$data['Nama_ekskul']}</td>
+                  <td>{$data['Nama_siswa']}</td>
+                  <td>{$data['Kelas']}</td>
+                  <td>{$data['No_Hp']}</td>
+                  <td>{$data['umur']}</td>
                   <td>
-                    <a href='ubah.php?id={$data['id_ekskul']}' class='btn btn-warning btn-sm'>Ubah</a>
-                    <a href='hapus.php?id={$data['id_ekskul']}' class='btn btn-danger btn-sm' onclick=\"return confirm('Yakin mau hapus?');\">Hapus</a>
+                    <a href='ubah.php?id={$data['id']}' class='btn btn-warning btn-sm'>Ubah</a>
+                    <a href='hapus.php?id={$data['id']}' class='btn btn-danger btn-sm' onclick=\"return confirm('Yakin mau hapus?');\">Hapus</a>
                   </td>
                 </tr>";
       }
