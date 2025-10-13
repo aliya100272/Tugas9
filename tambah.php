@@ -1,4 +1,8 @@
-<?php include "koneksi.php"; ?>
+<?php 
+session_start();
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+include 'koneksi.php'; ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -19,7 +23,7 @@
     </div>
     <div class="mb-3">
       <label class="form-label">Kelas</label>
-      <input type="text" name="kelas" class="form-control" required>
+      <input type="text" name="Kelas" class="form-control" required>
     </div>
      <div class="mb-3">
       <label class="form-label">No Hp</label>
@@ -37,12 +41,12 @@
   if (isset($_POST['simpan'])) {
       $nama_ekskul = $_POST['Nama_ekskul'];
       $nama_siswa  = $_POST['Nama_siswa'];
-      $kelas       = $_POST['kelas'];
+      $Kelas       = $_POST['Kelas'];
       $No_Hp       = $_POST['No_Hp'];
-      $umur       = $_POST['umur'];
+      $umur        = $_POST['umur'];
 
 
-      $sql = "INSERT INTO eskul (Nama_ekskul, Nama_siswa, Kelas, No_Hp, umur) VALUES ('$nama_ekskul', '$nama_siswa', '$kelas', '$No_Hp', '$umur')";
+      $sql = "INSERT INTO eskul (Nama_ekskul, Nama_siswa, Kelas, No_Hp, umur) VALUES ('$nama_ekskul', '$nama_siswa', '$Kelas', '$No_Hp', '$umur')";
       if (mysqli_query($koneksi, $sql)) {
           echo "<script>alert('Data berhasil ditambahkan'); window.location='index.php';</script>";
       } else {

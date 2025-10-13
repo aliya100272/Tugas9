@@ -1,4 +1,8 @@
-<?php include "koneksi.php"; ?>
+<?php 
+session_start();
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+include 'koneksi.php'; ?>
 <?php
 $id = $_GET['id'];
 $sql = mysqli_query($koneksi, "SELECT * FROM eskul WHERE id=$id");
@@ -44,7 +48,7 @@ $data = mysqli_fetch_assoc($sql);
       $nama_siswa  = $_POST['Nama_siswa'];
       $kelas       = $_POST['Kelas'];
       $No_Hp       = $_POST['No_Hp'];
-      $umur       = $_POST['umur'];
+      $umur        = $_POST['umur'];
 
       $sql = "UPDATE eskul SET Nama_ekskul='$nama_ekskul', Nama_siswa='$nama_siswa', Kelas='$kelas', No_Hp='$No_Hp', umur='$umur' WHERE id=$id";
       if (mysqli_query($koneksi, $sql)) {
